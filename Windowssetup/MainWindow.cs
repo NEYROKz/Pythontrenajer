@@ -24,9 +24,6 @@ namespace Windowssetup
         {
             InitializeComponent();
             InitializeUI("UIMODE");
-
-
-
         }
 
        private void addUserControl(UserControl userControl)
