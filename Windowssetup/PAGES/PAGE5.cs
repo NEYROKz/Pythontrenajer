@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace Windowssetup.PAGES
     {
 
         Random rnd = new Random();
+
+        bool forBackspace = false;
+
+        bool forSpace = false;
         public PAGE5()
         {
             InitializeComponent();
@@ -82,9 +87,45 @@ namespace Windowssetup.PAGES
                 if (e.KeyCode == Keys.Enter)
                 {
                     textBox1.AppendText("    ");
+                    this.forBackspace = true;
 
                 }
             }
+
+            if (this.forBackspace == true)
+            {
+
+                if (e.KeyCode == Keys.Back)
+                {
+                    textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
+                    textBox1.SelectionStart = textBox1.TextLength;
+
+                    this.forBackspace = false;
+
+                }
+            }
+
+            string nameif = "if";
+
+            bool temp2 = textBox1.Text.Contains(nameif);
+
+            if (this.forSpace == false)
+            {
+                if (temp2)
+                {
+                    textBox1.AppendText(" ");
+                    this.forSpace = true;
+
+                }
+
+            }
+
+            if (!temp2)
+            {
+                this.forSpace = false;
+            }
+            
+
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Windowssetup.PAGES
 {
     public partial class PAGE4 : UserControl
     {
-        const int countask = 6;
 
         Random rnd = new Random();
 
@@ -51,11 +50,13 @@ namespace Windowssetup.PAGES
                 task1.Text = ($"Если переменная {words.ToString()} равна {numbers}, то увеличить переменную {words.ToString()} на {numbers2}, \n" +
                 $"иначе на {numbers3}");
 
-                answer.Text = @"^if\s" + words.ToString() + @"\s==\s" + numbers + @":\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers3 + "$";
+                answer.Text = @"^" + label1.Text + @"\s" + words.ToString() + @"\s==\s" + numbers + @":\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers3 + "$";
 
                 answer2.Text = @"^if\s" + words.ToString() + @"==" + numbers + @":\r\n\s{4}" + words.ToString() + @"=" + words.ToString() + @"\+" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"=" + words.ToString() + @"\+" + numbers3 + "$";
                 
                 textBox1.ContextMenu = new ContextMenu();
+
+                
         }
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -99,7 +100,19 @@ namespace Windowssetup.PAGES
                     this.forSpace = true;
                     
                 }
+                
             }   
+
+            if(!temp2)
+            {
+                this.forSpace = false;
+            }
+
+            bool temp3 = textBox1.Text.Contains(label1.Text);
+            if(temp3)
+            {
+                label1.ForeColor = Color.Green;
+            }
 
         }
 
