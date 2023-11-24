@@ -1,4 +1,6 @@
-﻿namespace Windowssetup.PAGES
+﻿using System.Windows.Forms;
+
+namespace Windowssetup.PAGES
 {
     partial class PAGE4
     {
@@ -49,11 +51,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.AcceptsTab = true;
             this.textBox1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.ForeColor = System.Drawing.Color.Black;
             this.textBox1.Location = new System.Drawing.Point(53, 141);
-            this.textBox1.MaxLength = 1000;
+            this.textBox1.MaxLength = 100;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(646, 302);

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Speech.Synthesis.TtsEngine;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,6 +20,9 @@ namespace Windowssetup.PAGES
 
         Random rnd = new Random();
 
+        bool forBackspace = false;
+
+        bool forSpace = false;
         public PAGE4()
         {
             InitializeComponent();
@@ -58,26 +62,45 @@ namespace Windowssetup.PAGES
             string namequote = ":";
 
             bool temp = textBox1.Text.Contains(namequote);
-
-            if(temp)
+            
+            if (temp)
             {
                 if (e.KeyCode == Keys.Enter)
                 {
+                    
                     textBox1.AppendText("    ");
+                    this.forBackspace = true;
                     
                 }
             }
+            
+            if (this.forBackspace == true)
+            {
+                
+                if (e.KeyCode == Keys.Back)
+                {
+                    textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
+                    textBox1.SelectionStart = textBox1.TextLength;
 
-            /*string nameif = "if";
+                    this.forBackspace = false;
 
+                }
+            }
+
+            string nameif = "if";
+            
             bool temp2 = textBox1.Text.Contains(nameif);
 
-            if (temp2)
+            if(this.forSpace == false)
             {
-                textBox1.AppendText(" ");
-            }*/
+                if (temp2)
+                {
+                    textBox1.AppendText(" ");
+                    this.forSpace = true;
+                    
+                }
+            }   
 
-            
         }
 
         private void buttoncheck_Click(object sender, EventArgs e)
@@ -99,6 +122,8 @@ namespace Windowssetup.PAGES
             textBox1.Text = "";
 
             textBox1.ForeColor = Color.Black;
+
+            this.forSpace = false;
         }
     }
 }
