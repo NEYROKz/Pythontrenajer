@@ -50,7 +50,7 @@ namespace Windowssetup.PAGES
                 task1.Text = ($"Если переменная {words.ToString()} равна {numbers}, то увеличить переменную {words.ToString()} на {numbers2}, \n" +
                 $"иначе на {numbers3}");
 
-                answer.Text = @"^" + label1.Text + @"\s" + words.ToString() + @"\s==\s" + numbers + @":\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers3 + "$";
+                answer.Text = @"^if\s" + words.ToString() + @"\s==\s" + numbers + @":\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"\s=\s" + words.ToString() + @"\s\+\s" + numbers3 + "$";
 
                 answer2.Text = @"^if\s" + words.ToString() + @"==" + numbers + @":\r\n\s{4}" + words.ToString() + @"=" + words.ToString() + @"\+" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"=" + words.ToString() + @"\+" + numbers3 + "$";
                 
@@ -108,11 +108,6 @@ namespace Windowssetup.PAGES
                 this.forSpace = false;
             }
 
-            bool temp3 = textBox1.Text.Contains(label1.Text);
-            if(temp3)
-            {
-                label1.ForeColor = Color.Green;
-            }
 
         }
 
@@ -120,7 +115,9 @@ namespace Windowssetup.PAGES
         {
                 if(Regex.IsMatch(textBox1.Text, answer.Text, RegexOptions.IgnoreCase) ||  Regex.IsMatch(textBox1.Text, answer2.Text, RegexOptions.IgnoreCase))
                 {
+                    textBox1.BackColor = textBox1.BackColor;
                     textBox1.ForeColor = Color.Green;
+                    textBox1.ReadOnly = true;
                 }
 
             buttonreset.Visible = true;

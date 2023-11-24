@@ -50,7 +50,9 @@ namespace Windowssetup.PAGES
         {
             if (Regex.IsMatch(textBox1.Text, answer.Text, RegexOptions.IgnoreCase) || Regex.IsMatch(textBox1.Text, answer2.Text, RegexOptions.IgnoreCase))
             {
+                textBox1.BackColor = textBox1.BackColor;
                 textBox1.ForeColor = Color.Green;
+                textBox1.ReadOnly = true;
             }
 
             buttonreset.Visible = true;

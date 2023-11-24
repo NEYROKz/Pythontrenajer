@@ -34,6 +34,21 @@ namespace Windowssetup.PAGES
             { @"не кратно\s\d{2}", @"%\s\d{2}\s!=\s0$" }, 
         };
 
+        Dictionary<string, string> map2 = new Dictionary<string, string>()
+        {
+            { @"кратно\s\d{2}\sбез\sостатка", @"%\d{2}==0" },
+
+            { @"кратно\s\d{2}\sс\sостатком", @"%\d{2}==1" },
+
+            { "чётное", @"%2==0$" },
+
+            { "не чётное", @"%2!=0" },
+
+            { @"кратно\s\d{2}", @"%\d{2}==0" },
+
+            { @"не кратно\s\d{2}", @"%\d{2}!=0" },
+        };
+
         //list_labels
         List<Control> list_labels = new List<Control>();
 
@@ -145,27 +160,21 @@ namespace Windowssetup.PAGES
                 foreach (var kvp in map)
                 {
                     if (Regex.IsMatch(list_labels[i].Text, kvp.Key))
-                    {
+                    {   
                         if (map.ContainsKey(kvp.Key) == map.ContainsValue(kvp.Value))
                         {
-                            foreach(Match match in regex.Matches(list_labels[i].Text))
+                            foreach (Match match in regex.Matches(list_labels[i].Text))
                             {
-                                foreach(Match match2 in regex2.Matches(list_labels[i].Text))
+                                if (Regex.IsMatch(list_textbox[i].Text, kvp.Value))
                                 {
-                                    if (Regex.IsMatch(list_textbox[i].Text, kvp.Value))
+                                    if (Regex.IsMatch(list_textbox[i].Text, match.Value, RegexOptions.IgnoreCase))
                                     {
-                                        if (Regex.IsMatch(list_textbox[i].Text, match.Value, RegexOptions.IgnoreCase))
-                                        {
-                                            if (Regex.IsMatch(list_textbox[i].Text, match2.Value, RegexOptions.IgnoreCase))
-                                            {
-                                                count++;
-                                            }
-                                        }
+                                        count++;
                                     }
                                 }
-                            }  
+                            }
                         }
-                    }
+                    }   
                 }
 
                 list_textbox[i].ReadOnly = true;

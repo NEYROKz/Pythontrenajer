@@ -37,7 +37,6 @@ namespace Windowssetup.PAGES
             this.answer = new System.Windows.Forms.Label();
             this.buttonreset = new System.Windows.Forms.Button();
             this.answer2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // condition
@@ -122,21 +121,10 @@ namespace Windowssetup.PAGES
             this.answer2.Text = "answer2";
             this.answer2.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(802, 305);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 13);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "if";
-            this.label1.Visible = false;
-            // 
             // PAGE4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.answer2);
             this.Controls.Add(this.buttonreset);
             this.Controls.Add(this.answer);
@@ -163,6 +151,5 @@ namespace Windowssetup.PAGES
         private System.Windows.Forms.Label answer;
         private System.Windows.Forms.Button buttonreset;
         private System.Windows.Forms.Label answer2;
-        private Label label1;
     }
 }
