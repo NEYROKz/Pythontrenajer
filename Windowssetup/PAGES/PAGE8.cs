@@ -44,16 +44,23 @@ namespace Windowssetup.PAGES
 
             answer2.Text = @"^if\s" + words.ToString() + @"%" + numbers + @"==0:\r\n\s{4}" + words.ToString() + @"=" + words.ToString() + @"\+" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"=" + words.ToString() + @"\-" + numbers3 + "$";
 
+            answer3.Text = @"^if\s" + words.ToString() + @"\s%\s" + numbers + @"\s==\s0:\r\n\s{4}" + words.ToString() + @"\s\+=\s" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"\s\-=\s" + numbers3 + "$";
+
+            answer4.Text = @"^if\s" + words.ToString() + @"%" + numbers + @"==0:\r\n\s{4}" + words.ToString() + @"\+=" + numbers2 + @"\r\nelse:\r\n\s{4}" + words.ToString() + @"\-=" + numbers3 + "$";
+
             textBox1.ContextMenu = new ContextMenu();
         }
         private void buttoncheck_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox1.Text, answer.Text, RegexOptions.IgnoreCase) || Regex.IsMatch(textBox1.Text, answer2.Text, RegexOptions.IgnoreCase))
+            if (Regex.IsMatch(textBox1.Text, answer.Text, RegexOptions.IgnoreCase) || Regex.IsMatch(textBox1.Text, answer2.Text, RegexOptions.IgnoreCase) || Regex.IsMatch(textBox1.Text, answer3.Text, RegexOptions.IgnoreCase) || Regex.IsMatch(textBox1.Text, answer4.Text, RegexOptions.IgnoreCase))
             {
                 textBox1.BackColor = textBox1.BackColor;
+
                 textBox1.ForeColor = Color.Green;
-                textBox1.ReadOnly = true;
+                
             }
+
+            textBox1.ReadOnly = true;
 
             buttonreset.Visible = true;
         }
@@ -66,6 +73,8 @@ namespace Windowssetup.PAGES
 
             textBox1.Text = "";
 
+            textBox1.ReadOnly = false;
+
             textBox1.ForeColor = Color.Black;
         }
 
@@ -75,30 +84,37 @@ namespace Windowssetup.PAGES
 
             bool temp = textBox1.Text.Contains(namequote);
 
-            if (temp)
+            if(textBox1.ReadOnly == false)
             {
-                if (e.KeyCode == Keys.Enter)
+                if (temp)
                 {
-                    textBox1.AppendText("    ");
-                    this.forBackspace = true;
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        textBox1.AppendText("    ");
+                        this.forBackspace = true;
 
+                    }
                 }
             }
-
-            if (this.forBackspace == true)
+            
+            if(textBox1.ReadOnly == false)
             {
-
-                if (e.KeyCode == Keys.Back && textBox1.Text.Length > 3)
+                if (this.forBackspace == true)
                 {
-                    textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
-                    textBox1.SelectionStart = textBox1.TextLength;
 
-                    this.forBackspace = false;
+                    if (e.KeyCode == Keys.Back && textBox1.Text.Length > 3)
+                    {
+                        textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
+                        textBox1.SelectionStart = textBox1.TextLength;
 
+                        this.forBackspace = false;
+
+                    }
                 }
             }
+            
 
-            string nameif = "if";
+            /*string nameif = "if";
 
             bool temp2 = textBox1.Text.Contains(nameif);
 
@@ -116,7 +132,7 @@ namespace Windowssetup.PAGES
             if (!temp2)
             {
                 this.forSpace = false;
-            }
+            }*/
         }
     }
 }

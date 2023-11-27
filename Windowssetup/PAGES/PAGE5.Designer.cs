@@ -35,6 +35,8 @@
             this.buttonreset = new System.Windows.Forms.Button();
             this.answer = new System.Windows.Forms.Label();
             this.answer2 = new System.Windows.Forms.Label();
+            this.answer3 = new System.Windows.Forms.Label();
+            this.answer4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // condition
@@ -118,10 +120,32 @@
             this.answer2.Text = "answer2";
             this.answer2.Visible = false;
             // 
+            // answer3
+            // 
+            this.answer3.AutoSize = true;
+            this.answer3.Location = new System.Drawing.Point(807, 494);
+            this.answer3.Name = "answer3";
+            this.answer3.Size = new System.Drawing.Size(47, 13);
+            this.answer3.TabIndex = 44;
+            this.answer3.Text = "answer3";
+            this.answer3.Visible = false;
+            // 
+            // answer4
+            // 
+            this.answer4.AutoSize = true;
+            this.answer4.Location = new System.Drawing.Point(858, 494);
+            this.answer4.Name = "answer4";
+            this.answer4.Size = new System.Drawing.Size(47, 13);
+            this.answer4.TabIndex = 45;
+            this.answer4.Text = "answer4";
+            this.answer4.Visible = false;
+            // 
             // PAGE5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.answer4);
+            this.Controls.Add(this.answer3);
             this.Controls.Add(this.answer2);
             this.Controls.Add(this.answer);
             this.Controls.Add(this.buttonreset);
@@ -148,5 +172,7 @@
         private System.Windows.Forms.Button buttonreset;
         private System.Windows.Forms.Label answer;
         private System.Windows.Forms.Label answer2;
+        private System.Windows.Forms.Label answer3;
+        private System.Windows.Forms.Label answer4;
     }
 }
