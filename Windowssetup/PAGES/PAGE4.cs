@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Speech.Synthesis.TtsEngine;
 using System.Text;
@@ -57,6 +58,9 @@ namespace Windowssetup.PAGES
                 textBox1.ContextMenu = new ContextMenu();
 
                 
+           
+
+                
         }
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -71,14 +75,13 @@ namespace Windowssetup.PAGES
                     
                     textBox1.AppendText("    ");
                     this.forBackspace = true;
-                    
                 }
             }
-            
+
             if (this.forBackspace == true)
             {
                 
-                if (e.KeyCode == Keys.Back)
+                if (e.KeyCode == Keys.Back && textBox1.Text.Length > 3)
                 {
                     textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
                     textBox1.SelectionStart = textBox1.TextLength;

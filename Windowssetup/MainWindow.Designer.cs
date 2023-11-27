@@ -32,6 +32,8 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnTray = new System.Windows.Forms.Button();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneButton8 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneButton7 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton6 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton5 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -39,8 +41,6 @@
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.siticoneButton7 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton8 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.UC_PAGE1 = new Windowssetup.PAGES.PAGE1();
             this.UC_PAGE2 = new Windowssetup.PAGES.PAGE2();
             this.UC_PAGE3 = new Windowssetup.PAGES.PAGE3();
@@ -103,6 +103,48 @@
             this.siticonePanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.siticonePanel1_MouseDown);
             this.siticonePanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.siticonePanel1_MouseMove);
             this.siticonePanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.siticonePanel1_MouseUp);
+            // 
+            // siticoneButton8
+            // 
+            this.siticoneButton8.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.siticoneButton8.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.siticoneButton8.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.siticoneButton8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
+            this.siticoneButton8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.siticoneButton8.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton8.Location = new System.Drawing.Point(840, -1);
+            this.siticoneButton8.Name = "siticoneButton8";
+            this.siticoneButton8.PressedDepth = 0;
+            this.siticoneButton8.Size = new System.Drawing.Size(120, 45);
+            this.siticoneButton8.TabIndex = 21;
+            this.siticoneButton8.Text = "Задание №8";
+            this.siticoneButton8.TextOffset = new System.Drawing.Point(5, 0);
+            this.siticoneButton8.CheckedChanged += new System.EventHandler(this.siticoneButton8_CheckedChanged);
+            // 
+            // siticoneButton7
+            // 
+            this.siticoneButton7.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.siticoneButton7.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.siticoneButton7.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.siticoneButton7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
+            this.siticoneButton7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.siticoneButton7.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton7.Location = new System.Drawing.Point(720, 0);
+            this.siticoneButton7.Name = "siticoneButton7";
+            this.siticoneButton7.PressedDepth = 0;
+            this.siticoneButton7.Size = new System.Drawing.Size(120, 45);
+            this.siticoneButton7.TabIndex = 20;
+            this.siticoneButton7.Text = "Задание №7";
+            this.siticoneButton7.TextOffset = new System.Drawing.Point(5, 0);
+            this.siticoneButton7.CheckedChanged += new System.EventHandler(this.siticoneButton7_CheckedChanged);
             // 
             // siticoneButton6
             // 
@@ -244,48 +286,6 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1106, 545);
             this.panelContainer.TabIndex = 15;
-            // 
-            // siticoneButton7
-            // 
-            this.siticoneButton7.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.siticoneButton7.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.siticoneButton7.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.siticoneButton7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
-            this.siticoneButton7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.siticoneButton7.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton7.Location = new System.Drawing.Point(720, 0);
-            this.siticoneButton7.Name = "siticoneButton7";
-            this.siticoneButton7.PressedDepth = 0;
-            this.siticoneButton7.Size = new System.Drawing.Size(120, 45);
-            this.siticoneButton7.TabIndex = 20;
-            this.siticoneButton7.Text = "Задание №7";
-            this.siticoneButton7.TextOffset = new System.Drawing.Point(5, 0);
-            this.siticoneButton7.CheckedChanged += new System.EventHandler(this.siticoneButton7_CheckedChanged);
-            // 
-            // siticoneButton8
-            // 
-            this.siticoneButton8.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.siticoneButton8.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.siticoneButton8.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.siticoneButton8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
-            this.siticoneButton8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.siticoneButton8.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton8.Location = new System.Drawing.Point(840, -1);
-            this.siticoneButton8.Name = "siticoneButton8";
-            this.siticoneButton8.PressedDepth = 0;
-            this.siticoneButton8.Size = new System.Drawing.Size(120, 45);
-            this.siticoneButton8.TabIndex = 21;
-            this.siticoneButton8.Text = "Задание №8";
-            this.siticoneButton8.TextOffset = new System.Drawing.Point(5, 0);
-            this.siticoneButton8.CheckedChanged += new System.EventHandler(this.siticoneButton8_CheckedChanged);
             // 
             // UC_PAGE1
             // 

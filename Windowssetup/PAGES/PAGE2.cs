@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -26,8 +27,8 @@ namespace Windowssetup.PAGES
 
         Dictionary<string, string> map = new Dictionary<string, string>()
         {
-            {@"\w\s\w*(равно)\s\d{2}", "==" },
-            {@"\w\s\w*(не равно)\s\d{2}", "!=" },
+            {@"Число\s\w*([a-zA-Z])\s\w*(не равно)\s\d{2}", "!=" },
+            {@"Число\s\w*([a[zA-Z])\s\w*(равно)\s\d{2}", "==" },
             {@"\w\sбольше\sили\sравно\s\d{2}", ">=" },
             {@"\w\sменьше\sили\sравно\s\d{2}", "<=" },
             {@"\w\sменьше\s\d{2}", "<" },
@@ -136,6 +137,10 @@ namespace Windowssetup.PAGES
                                             if (Regex.IsMatch(list_textbox[i].Text, match2.Value, RegexOptions.IgnoreCase))
                                             {
                                                 count++;
+
+                                                list_textbox[i].BackColor = list_textbox[i].BackColor;
+
+                                                list_textbox[i].ForeColor = Color.Green;
                                             }
                                         }
                                     }
@@ -163,6 +168,10 @@ namespace Windowssetup.PAGES
                                 if (Regex.IsMatch(list_textbox2[i].Text, kvp.Value))
                                 {
                                     count++;
+
+                                    list_textbox2[i].BackColor = list_textbox[i].BackColor;
+
+                                    list_textbox2[i].ForeColor = Color.Green;
                                 }
                             }
                         }
@@ -196,6 +205,8 @@ namespace Windowssetup.PAGES
                 list_textbox[i].Text = "";
 
                 list_textbox[i].ReadOnly = false;
+
+                list_textbox[i].ForeColor = Color.Black;
             }
 
             for (int i = 0; i < 2; i++)
@@ -203,6 +214,8 @@ namespace Windowssetup.PAGES
                 list_textbox2[i].Text = "";
 
                 list_textbox2[i].ReadOnly = false;
+
+                list_textbox2[i].ForeColor = Color.Black;
             }
 
             for (int i = 0; i < countask; i++)

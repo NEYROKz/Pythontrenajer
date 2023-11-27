@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -21,24 +23,24 @@ namespace Windowssetup.PAGES
 
         Dictionary<string, string> map = new Dictionary<string, string>()
         {
-            { @"кратно\s\d{2}\sбез\sостатка", @"%\s\d{2}\s==\s\d[0]$" },
+            { @"Число\s\w*([a-zA-Z])\sкратно\s\d{2}\sбез\sостатка", @"%\s\d{2}\s==\s\0$" },
 
-            { @"кратно\s\d{2}\sс\sостатком", @"%\s\d{2}\s==\s1$" },
+            { @"Число\s\w*([a-zA-Z])\sкратно\s\d{2}\sс\sостатком", @"%\s\d{2}\s!=\s0$" },
 
-            { "чётное", @"%\s2\s==\s0$" },
+            { @"Число\s\w*([a-zA-Z])\sчётное", @"%\s2\s==\s0$" },
 
-            { "не чётное", @"%\s2\s!=\s0$" },
+            { @"Число\s\w*([a-zA-Z])\sне\sчётное", @"%\s2\s!=\s0$" },
 
-            { @"кратно\s\d{2}", @"%\s\d{2}\s==\s0$" }, 
+            { @"Число\s\w*([a-zA-Z])\sкратно\s\d{2}", @"%\s\d{2}\s==\s0$" }, 
 
-            { @"не кратно\s\d{2}", @"%\s\d{2}\s!=\s0$" }, 
+            { @"Число\s\w*([a-zA-Z])\sне\sкратно\s\d{2}", @"%\s\d{2}\s!=\s0$" }, 
         };
 
         Dictionary<string, string> map2 = new Dictionary<string, string>()
         {
             { @"кратно\s\d{2}\sбез\sостатка", @"%\d{2}==0" },
 
-            { @"кратно\s\d{2}\sс\sостатком", @"%\d{2}==1" },
+            { @"кратно\s\d{2}\sс\sостатком", @"%\d{2}==0" },
 
             { "чётное", @"%2==0$" },
 
@@ -117,6 +119,8 @@ namespace Windowssetup.PAGES
 
                 list_labels[i].Text = ($"Число {words.ToString()} {OperationsCon[nameOperationsCon]} {numbers} ");
 
+                list_textbox[i].ContextMenu = new ContextMenu();
+
             }
 
             for (int i = 0; i < 2; i++)
@@ -132,6 +136,7 @@ namespace Windowssetup.PAGES
 
                 list_labels2[i].Text = ($"Число {words2.ToString()} {OperationsCon2[nameOperationsCon2]} ");
 
+                list_textbox2[i].ContextMenu = new ContextMenu();
             }
 
             for (int i = 0; i < 2; i++)
@@ -148,6 +153,8 @@ namespace Windowssetup.PAGES
                 numbers3 = (int)rand.Next(10, 99);
 
                 list_labels3[i].Text = ($"Число {words3.ToString()} кратно {numbers3} {OperationsCon3[nameOperations3]} ");
+
+                list_textbox3[i].ContextMenu = new ContextMenu();
             }
         }
 
@@ -170,6 +177,11 @@ namespace Windowssetup.PAGES
                                     if (Regex.IsMatch(list_textbox[i].Text, match.Value, RegexOptions.IgnoreCase))
                                     {
                                         count++;
+
+                                        list_textbox[i].BackColor = list_textbox[i].BackColor;
+
+                                        list_textbox[i].ForeColor = Color.Green;
+                                        
                                     }
                                 }
                             }
@@ -177,7 +189,7 @@ namespace Windowssetup.PAGES
                     }   
                 }
 
-                list_textbox[i].ReadOnly = true;
+               list_textbox[i].ReadOnly = true;
 
             }
 
@@ -198,6 +210,10 @@ namespace Windowssetup.PAGES
                                     if (Regex.IsMatch(list_textbox3[i].Text , match.Value, RegexOptions.IgnoreCase))
                                     {
                                         count++;
+
+                                        list_textbox3[i].BackColor = list_textbox[i].BackColor;
+
+                                        list_textbox3[i].ForeColor = Color.Green;
                                     }
                                 }
                             }
@@ -224,6 +240,10 @@ namespace Windowssetup.PAGES
                                     if (Regex.IsMatch(list_textbox2[i].Text, match.Value, RegexOptions.IgnoreCase))
                                     {
                                         count++;
+
+                                        list_textbox2[i].BackColor = list_textbox[i].BackColor;
+
+                                        list_textbox2[i].ForeColor = Color.Green;
                                     }
                                 }
                             }
@@ -259,6 +279,8 @@ namespace Windowssetup.PAGES
                 list_textbox[i].Text = "";
 
                 list_textbox[i].ReadOnly = false;
+
+                list_textbox[i].ForeColor = Color.Black;
             }
 
             for (int i = 0; i < 2; i++)
@@ -266,6 +288,8 @@ namespace Windowssetup.PAGES
                 list_textbox2[i].Text = "";
 
                 list_textbox2[i].ReadOnly = false;
+
+                list_textbox2[i].ForeColor = Color.Black;
             }
 
             for (int i = 0; i < 2; i++)
@@ -273,6 +297,8 @@ namespace Windowssetup.PAGES
                 list_textbox3[i].Text = "";
 
                 list_textbox3[i].ReadOnly = false;
+
+                list_textbox3[i].ForeColor = Color.Black;
             }
 
             namecountright.Visible = false;

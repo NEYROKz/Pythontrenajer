@@ -8,6 +8,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.WebPages;
 using System.Windows.Forms;
 
 namespace Windowssetup.PAGES
@@ -97,17 +98,17 @@ namespace Windowssetup.PAGES
             if (this.forBackspace == true)
             {
 
-                if (e.KeyCode == Keys.Back)
+                if (e.KeyCode == Keys.Back && textBox1.Text.Length > 3)
                 {
-                    textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
-                    textBox1.SelectionStart = textBox1.TextLength;
+                        textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 3);
+                        textBox1.SelectionStart = textBox1.TextLength;
 
                     this.forBackspace = false;
 
                 }
             }
 
-            string nameif = "if";
+           /* string nameif = "if";
 
             bool temp2 = textBox1.Text.Contains(nameif);
 
@@ -126,7 +127,7 @@ namespace Windowssetup.PAGES
             {
                 this.forSpace = false;
             }
-            
+            */
 
         }
     }
